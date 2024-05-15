@@ -23,3 +23,6 @@ if (-not (Get-AppxPackage -Name "*Teams*")) {
 - Iterate through list and run something similar to above script
 
 - How to run powershell with C# or C# equivalent code for MSIX registration
+
+ALT STARTUP OPTIONS?
+https://stackoverflow.com/questions/5091504/application-start-before-windows-explorer
