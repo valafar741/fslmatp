@@ -1,0 +1,25 @@
+FSLogix Hotfix 4 Announcement
+https://techcommunity.microsoft.com/t5/fslogix-blog/announcing-general-availability-for-fslogix-2210-hotfix-4/ba-p/4140133
+
+FSLogix Known Issues
+https://learn.microsoft.com/en-us/fslogix/troubleshooting-known-issues#enabled-by-default-policies-in-the-admx-template-cant-be-disabled-using-group-policy
+
+Review this regarding FSLogix ADMX bug
+https://learn.microsoft.com/en-us/fslogix/troubleshooting-known-issues#enabled-by-default-policies-in-the-admx-template-cant-be-disabled-using-group-policy
+
+MSIX Teams Registration script (for on login)
+
+if (-not (Get-AppxPackage -Name "*Teams*")) {
+    Add-AppxPackage -RegisterByFamilyName -MainPackage MSTeams_8wekyb3d8bbwe -ErrorAction SilentlyContinue
+    Start-Sleep -Seconds 2
+    Start-Process -FilePath C:\Windows\explorer.exe -ArgumentList "shell:AppsFolder\MSTeams_8wekyb3d8bbwe!MSTeams" -ErrorAction SilentlyContinue
+}
+
+- Service runs as system?
+- Needs to impersonate user during login process if this packages doesn't already cater for this
+- Show loading spinner during login
+- Check for $ENV:LocalAppData\FSLogix\AppxPackages.xml
+- Read in and convert from xml
+- Iterate through list and run something similar to above script
+
+- How to run powershell with C# or C# equivalent code for MSIX registration
